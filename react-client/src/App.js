@@ -51,8 +51,8 @@ function App() {
           <Route render ={()=> < Home />} path="/home" />
           <Route render ={()=> < Login />} path="/login" />
           <Route render ={()=> < SignUp />} path="/signUp" />
-          <Route render ={()=> userCategory === 'nurse' && < NurseHomepage />} path="/nurse" />
-          <Route render ={()=> userCategory === 'patient' && < PatientHomepage />} path="/patient" />
+          <Route render ={()=> < NurseHomepage />} path="/nurse" />
+          <Route render ={()=> < PatientHomepage />} path="/patient" />
 
           <Route render ={()=> userCategory === 'patient' && < AddVitalSigns />} path="/addVitalSigns" />
           <Route render ={()=> userCategory === 'patient' && < Checklist />} path="/checklist" />

@@ -1,3 +1,3 @@
 # hospital-react
  
-Created by Priyanka Kedia and Hardip Patel
+Created by Priyanka Kediya and Hardip Patel

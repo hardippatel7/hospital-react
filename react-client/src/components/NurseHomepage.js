@@ -6,9 +6,10 @@ import { faLightbulb, faPlusSquare, faExclamationTriangle, faInfoCircle } from '
 
 function Nurse(props) {
 
+  const name = localStorage.getItem('name');
   return (
     <div className='nursePage'>
-      <center><h2> Hello, user!</h2></center>
+      <center><h2> Hello {name}</h2></center>
 
       <ListGroup >
 

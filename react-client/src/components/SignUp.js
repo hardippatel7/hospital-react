@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { withRouter, useHistory } from 'react-router-dom';
+import jwt from 'jwt-decode';
 
 
 export const SIGN_UP = gql`
@@ -16,21 +17,21 @@ mutation
   $userCategory:String!,
   $phoneNumber:String!,
   ) 
-        {
+      {
             signUp
-        (
+          (
             email: $email, firstName: $firstName, lastName: $lastName,
           password: $password, userCategory: $userCategory, phoneNumber: $phoneNumber,
           )
           {
             _id
-        }
+          }
       }
 `;
 
 const Register = () => {
 
-  let email, password, firstName, lastName, userCategory, phoneNumber;
+  let email, password, firstName, lastName, phoneNumber;
   const [signUp, { data, loading, error }] = useMutation(SIGN_UP);
 
   const history = useHistory();
@@ -39,12 +40,9 @@ const Register = () => {
   //user category handler
 
   const handleRadioChange = (event) => {
-    console.log("inside raiod change")
-    console.log(event.target.value);
+    setUser(event.target.value);
   }
 
-  let path1 = `/nurse`;
-  let path2 = `/patient`;
   if (loading) return 'Submitting...';
   if (error) return `Submission error! ${error.message}`;
 
@@ -56,22 +54,25 @@ const Register = () => {
           signUp({
             variables: {
               email: email.value, password: password.value, firstName: firstName.value, lastName: lastName.value,
-              userCategory: userCategory.value, phoneNumber: phoneNumber.value
+              userCategory: user, phoneNumber: phoneNumber.value
             }
           });
 
-          if (userCategory.value === 'nurse') {
-            console.log(userCategory.value + " <stated user")
-            history.push(path1);
-          }
-          history.push(path2);
+          localStorage.setItem('userCategory', user);
+          localStorage.setItem('name', firstName.value);
 
           email.value = '';
           password.value = '';
           firstName.value = '';
           lastName.value = '';
-          userCategory.value = '';
           phoneNumber.value = '';
+
+          if(user === 'patient'){
+            history.push(`/patient`);
+          }
+          else{
+            history.push(`/nurse`);
+          }
         }} >
           <Form.Group>
             <Form.Label> Email</Form.Label>
@@ -97,6 +98,7 @@ const Register = () => {
             <Form.Label> User Category &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </Form.Label>
             <div onChange={handleRadioChange}>
               <input type="radio" value="nurse" name="userCategory" /> Nurse
+              &nbsp;&nbsp;&nbsp;
               <input type="radio" value="patient" name="userCategory" /> Patient
             </div>
           </Form.Group>
