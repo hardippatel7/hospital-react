@@ -18,6 +18,7 @@ ReactDOM.render(
     <ApolloProvider client={client}>
 
         <App />
+        
 
     </ApolloProvider>,
 

@@ -1,41 +1,44 @@
-import React from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, { useState, useEffect } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.css';
+import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+//
 
-function Home(props) {
+function Checklist() {
 
-    return (
+  return (
+    <div>              
+
         <div>
-            <h2><center> Check from the below checklist and submit</center></h2>
-
-            <Jumbotron className='form'>
-                <Form onSubmit={e => {
-                }} >
+            <center><h3>Check your signs and symptoms</h3></center><br/><br/>
+            
+            <Form method='get' action='/run' className='form'>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 1" />
+                        <Form.Check type="checkbox" label="Cholesterol" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 2" />
+                        <Form.Check type="checkbox" label="Past Cardiac history" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 3" />
+                        <Form.Check type="checkbox" label="Pain and numbness in extremities" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 4" />
+                        <Form.Check type="checkbox" label="High Blood pressure" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 5" />
+                        <Form.Check type="checkbox" label="Shortness of breath" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Symptom 6" />
+                        <Form.Check type="checkbox" label="Chest Tightness" />
                     </Form.Group>
 
                     <div className='button'>
@@ -47,10 +50,9 @@ function Home(props) {
                         </Button>
                     </div>
                 </Form>
-            </Jumbotron>
         </div>
-    );
-
+            </div>
+  );
 }
-
-export default withRouter(Home);
+//
+export default Checklist;

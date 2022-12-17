@@ -8,7 +8,7 @@ const name = localStorage.getItem('name');
 function Patient(props) {
   return (
     <div className='patientPage'>
-      <h3> Hello {name}</h3><br />
+      <h3> Hello, {name}!</h3><br />
 
       <ListGroup >
         <ListGroup.Item action href="/showTip" className='listColor'>

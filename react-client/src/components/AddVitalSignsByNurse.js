@@ -48,8 +48,7 @@ const AddVitalSigns = () => {
     <div>
       <br /><br /><center><h5> Vital Signs Form</h5></center>
 
-      <Jumbotron className='form'>
-        <Form onSubmit={e => {
+        <Form className='form' onSubmit={e => {
           createVitalSign({
             variables: {
               bodyTemperature: bodyTemperature.value, heartRate: heartRate.value, bloodPressure: bloodPressure.value, respiratoryRate: respiratoryRate.value,
@@ -100,7 +99,6 @@ const AddVitalSigns = () => {
             </Button>
           </div>
         </Form>
-      </Jumbotron>
     </div>
   );
 

@@ -43,8 +43,8 @@ function CreateTip(props) {
     <div>
       <h2><center> Motivational Tip</center></h2>
 
-      <Jumbotron className='form'>
-        <Form onSubmit={e => {
+     
+        <Form className='form' onSubmit={e => {
           createMotivationalTip({
             variables: {
               message: message.value
@@ -73,7 +73,7 @@ function CreateTip(props) {
             </Button>
           </div>
         </Form>
-      </Jumbotron>
+   
     </div>
   );
 

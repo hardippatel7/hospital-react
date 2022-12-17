@@ -117,15 +117,3 @@ h1,h2,h3
   color: white;
 }
 
-.showStudent{
-  padding-left: 400px;
-    padding-right: 400px;
-  align-items: center;
-  background-color:rgb(219, 224, 244);
-  font-family: 'Times New Roman', Times, serif;
-  font-size: x-large;
-}
-
-.editStudent{
-  background-color:rgb(219, 224, 244);
-}

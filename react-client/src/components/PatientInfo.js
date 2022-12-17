@@ -48,11 +48,6 @@ const ShowVitalSigns = () => {
       title: 'Weight',
       dataIndex: "weight",
       key: "weight"
-    },
-    {
-      title: 'Patient',
-      dataIndex: "patient",
-      key: "patient"
     }
   ]
   console.log(data);

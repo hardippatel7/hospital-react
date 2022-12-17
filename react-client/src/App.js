@@ -25,6 +25,8 @@ import PatientInfo from './components/PatientInfo';
 import ShowMotivationalTip from './components/ShowMotivationalTip';
 import AddVitalSignsByNurse from './components/AddVitalSignsByNurse';
 import ShowEmergencyAlert from './components/ShowEmergencyAlert';
+import Results from './components/Results';
+import Logout from './components/Logout'
 //
 function App() {
 
@@ -38,8 +40,6 @@ function App() {
             <Nav.Link href="/home" >Home</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signUp">Sign Up</Nav.Link>
-            <Nav.Link href="/nurse">Nurse</Nav.Link>
-            <Nav.Link href="/patient">Patient</Nav.Link>
             <Nav.Link href="/logout">Logout</Nav.Link>
 
 
@@ -65,14 +65,9 @@ function App() {
           <Route render ={()=> userCategory === 'nurse' && < PatientInfo />} path="/patientInfo" />
           <Route render ={()=> userCategory === 'nurse' && < AddVitalSignsByNurse />} path="/vitals" />
           <Route render ={()=> userCategory === 'nurse' && < ShowEmergencyAlert />} path="/alert" />
-          
+          <Route render ={()=> < Results />} path="/run" />
+          <Route render ={()=> < Logout />} path="/logout" />
 
-          {/* <Route render ={()=> < CreateStudent />} path="/create" />
-          <Route render ={()=> < ListStudents />} path="/list" />
-          <Route render ={()=> < EditStudent />} path="/editStudent/:id" />
-          <Route render ={()=> < ShowStudent />} path="/show/:id" />
-          <Route render ={()=> < Deletestudent />} path="/deletestudent/:id" />         
- */}
       </div>
 
     </Router>
